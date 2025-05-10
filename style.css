@@ -1,0 +1,31 @@
+*{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 20px;
+}
+
+.tabbuttons{
+    display:flex;
+    justify-content :center;
+}
+
+.tabbutton{
+    display:flex;
+    justify-content: top;
+    align-items :center;
+    font-size: 50px;
+    margin: 10px;
+}
+
+.tabs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tab {
+    display: none;
+    padding: 6px 12px;
+    border-color:black;
+    border-bottom: 0px;
+}

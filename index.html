@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <icon href="icon.png" >
+    <title>Unit Converter</title>
+
+</head>
+<body>
+    <div class="tabbuttons">   
+        <buton class="tabbutton length" onclick="pickConvertion('length')">Length</buton>
+        <buton class="tabbutton temperature" onclick="pickConvertion('temperature')">Temperature</buton>
+        <buton class="tabbutton weight" onclick="pickConvertion('weight')">Weight</buton>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab" id ="length">
+            <input type="text" placeholder="Enter length" id="lengthInput">
+            <div class="dropdown">
+                <button class="lengthUnitIn" id="mm" onclick="">Milimeter</button>
+                <button class="lengthUnitIn" id="cm">Centimeter</button>
+                <button class="lengthUnitIn" id="dm">Decimeter</button>
+                <button class="lengthUnitIn" id="m">Meter</button>
+                <button class="lengthUnitIn" id="dam">Decameter</button>
+                <button class="lengthUnitIn" id="hm">Hectometer</button>
+                <button class="lengthUnitIn" id="km">Kilometer</button>
+                <button class="lengthUnitIn" id="in">Inch</button>
+                <button class="lengthUnitIn" id="ft">Foot</button>
+                <button class="lengthUnitIn" id="yd">Yard</button>
+                <button class="lengthUnitIn" id="ml">Mile</button>
+            </div>
+            <div class="dropdown">
+                <button class="lengthUnitOut" id="mm">Milimeter</button>
+                <button class="lengthUnitOut" id="cm">Centimeter</button>
+                <button class="lengthUnitOut" id="dm">Decimeter</button>
+                <button class="lengthUnitOut" id="m">Meter</button>
+                <button class="lengthUnitOut" id="dam">Decameter</button>
+                <button class="lengthUnitOut" id="hm">Hectometer</button>
+                <button class="lengthUnitOut" id="km">Kilometer</button>
+                <button class="lengthUnitOut" id="in">Inch</button>
+                <button class="lengthUnitOut" id="ft">Foot</button>
+                <button class="lengthUnitOut" id="yd">Yard</button>
+                <button class="lengthUnitOut" id="ml">Mile</button>
+            </div>
+
+            <button class = "convert">Convert</button>
+        </div>
+        <div class="tab" id="temperature">
+            <p>example text 2</p>
+        </div>
+        <div class="tab" id="weight">
+            <p>example text 3</p>
+        </div>
+    </div>
+
+
+    <script src = index.js></script>
+</body>
+</html>
