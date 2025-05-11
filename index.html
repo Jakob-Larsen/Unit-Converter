@@ -5,54 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
-    <icon href="icon.png" >
+    <link rel="icon" href="icon.png" type="image/x-icon">
     <title>Unit Converter</title>
-
 </head>
 <body>
     <div class="tabbuttons">   
-        <buton class="tabbutton length" onclick="pickConvertion('length')">Length</buton>
-        <buton class="tabbutton temperature" onclick="pickConvertion('temperature')">Temperature</buton>
-        <buton class="tabbutton weight" onclick="pickConvertion('weight')">Weight</buton>
+        <button class="tabbutton length" onclick="pickConvertion('length')">Length</buton>
+        <button class="tabbutton temperature" onclick="pickConvertion('temperature')">Temperature</buton>
+        <button class="tabbutton weight" onclick="pickConvertion('mass')">Mass</buton>
     </div>
     
     <div class="tabs">
-        <div class="tab" id ="length">
-            <input type="text" placeholder="Enter length" id="lengthInput">
+        <div class="tab" id="length">
+            <input type="text" placeholder="Enter length" id="lengthInput" onchange="convertLength()" autocomplete="false">
+        
             <div class="dropdown">
-                <button class="lengthUnitIn" id="mm" onclick="">Milimeter</button>
-                <button class="lengthUnitIn" id="cm">Centimeter</button>
-                <button class="lengthUnitIn" id="dm">Decimeter</button>
-                <button class="lengthUnitIn" id="m">Meter</button>
-                <button class="lengthUnitIn" id="dam">Decameter</button>
-                <button class="lengthUnitIn" id="hm">Hectometer</button>
-                <button class="lengthUnitIn" id="km">Kilometer</button>
-                <button class="lengthUnitIn" id="in">Inch</button>
-                <button class="lengthUnitIn" id="ft">Foot</button>
-                <button class="lengthUnitIn" id="yd">Yard</button>
-                <button class="lengthUnitIn" id="ml">Mile</button>
+                <select id="lengthUnitInSelect" class="unit-select" onchange="updateLengthUnitIn(this.value)">
+                    <option value="mm">Millimeter</option>
+                    <option value="cm">Centimeter</option>
+                    <option value="dm">Decimeter</option>
+                    <option value="m">Meter</option>
+                    <option value="dam">Decameter</option>
+                    <option value="hm">Hectometer</option>
+                    <option value="km">Kilometer</option>
+                    <option value="in">Inch</option>
+                    <option value="ft">Foot</option>
+                    <option value="yd">Yard</option>
+                    <option value="ml">Mile</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select id="lengthUnitOutSelect" class="unit-select" onchange="updateLengthUnitOut(this.value)">
+                    <option value="mm">Millimeter</option>
+                    <option value="cm">Centimeter</option>
+                    <option value="dm">Decimeter</option>
+                    <option value="m">Meter</option>
+                    <option value="dam">Decameter</option>
+                    <option value="hm">Hectometer</option>
+                    <option value="km">Kilometer</option>
+                    <option value="in">Inch</option>
+                    <option value="ft">Foot</option>
+                    <option value="yd">Yard</option>
+                    <option value="ml">Mile</option>
+                </select>
             </div>
-            <div class="dropdown">
-                <button class="lengthUnitOut" id="mm">Milimeter</button>
-                <button class="lengthUnitOut" id="cm">Centimeter</button>
-                <button class="lengthUnitOut" id="dm">Decimeter</button>
-                <button class="lengthUnitOut" id="m">Meter</button>
-                <button class="lengthUnitOut" id="dam">Decameter</button>
-                <button class="lengthUnitOut" id="hm">Hectometer</button>
-                <button class="lengthUnitOut" id="km">Kilometer</button>
-                <button class="lengthUnitOut" id="in">Inch</button>
-                <button class="lengthUnitOut" id="ft">Foot</button>
-                <button class="lengthUnitOut" id="yd">Yard</button>
-                <button class="lengthUnitOut" id="ml">Mile</button>
-            </div>
-
-            <button class = "convert">Convert</button>
+            <p id="outputLength"></p> 
         </div>
         <div class="tab" id="temperature">
-            <p>example text 2</p>
+            <input type="text" placeholder="Enter temperature" id="tempInput" onchange="convertTemp()" autocomplete="false">
+            
+            <div class="dropdown">
+                <select id="temperatureUnitInSelect" class="unit-select" onchange="updateTempUnitIn(this.value)">
+                    <option value="c">Celcius</option>
+                    <option value="f">Fahrenheit</option>
+                    <option value="k">Kelvin</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select id="temperatureUnitOutSelect" class="unit-select" onchange="updateTempUnitOut(this.value)">
+                    <option value="c">Celcius</option>
+                    <option value="f">Fahrenheit</option>
+                    <option value="k">Kelvin</option>  
+                </select>
+            </div>
+            
+            <p id="outputTemp"></p>
         </div>
-        <div class="tab" id="weight">
-            <p>example text 3</p>
+
+        <div class="tab" id="mass">
+            <input type="text" placeholder="Enter mass" id="massInput" onchange="convertMass()" autocomplete="false">
+            <div class="dropdown">
+                <select id="massUnitInSelect" class="unit-select" onchange="updateMassUnitIn(this.value)">
+                    <option value="mg">Milligram</option>
+                    <option value="cg">Centigram</option>
+                    <option value="dg">Decigram</option>
+                    <option value="g">Gram</option>
+                    <option value="dag">Decagram</option>
+                    <option value="hg">Hectogram</option>
+                    <option value="kg">Kilogram</option>
+                    <option value="mt">Metric Ton</option>
+                    <option value="oz">Ounce</option>
+                    <option value="lb">Pound</option>
+                    <option value="st">Stone</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select id="massUnitOutSelect" class="unit-select" onchange="updateMassUnitOut(this.value)">
+                    <option value="mg">Milligram</option>
+                    <option value="cg">Centigram</option>
+                    <option value="dg">Decigram</option>
+                    <option value="g">Gram</option>
+                    <option value="dag">Decagram</option>
+                    <option value="hg">Hectogram</option>
+                    <option value="kg">Kilogram</option>
+                    <option value="mt">Metric Ton</option>
+                    <option value="oz">Ounce</option>
+                    <option value="lb">Pound</option>
+                    <option value="st">Stone</option>
+                </select>
+            </div>
+            <p id="outputMass"></p>
         </div>
     </div>
 

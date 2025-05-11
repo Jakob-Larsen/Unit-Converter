@@ -1,31 +1,174 @@
-*{
-    font-family: 'Brush Script MT', cursive;
+/* Base Reset and Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
     font-size: 20px;
 }
 
-.tabbuttons{
-    display:flex;
-    justify-content :center;
+body {
+    background: #111;
+    color: #111;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.tabbutton{
-    display:flex;
-    justify-content: top;
-    align-items :center;
-    font-size: 50px;
-    margin: 10px;
-}
-
-.tabs{
+/* Tab Button Styles */
+.tabbuttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin: 30px 0 20px;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
+.tabbutton {
+    background: #fff;
+    color: #111;
+    border: 2px solid #111;
+    border-radius: 8px 8px 0 0;
+    padding: 16px 32px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+.tabbutton.selected,
+.tabbutton:focus {
+    background: #111;
+    color: #fff;
+    border-bottom: 4px solid #fff;
+}
+
+/* Tab Content Container */
+.tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+    max-width: 600px;
+    padding: 32px 24px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+}
+
+/* Individual Tab Pane */
 .tab {
     display: none;
-    padding: 6px 12px;
-    border-color:black;
-    border-bottom: 0px;
+    width: 100%;
+}
+
+.tab[style*="block"] {
+    display: block !important;
+}
+
+/* Input Field */
+input[type="text"] {
+    padding: 10px 16px;
+    font-size: 20px;
+    border: 2px solid #111;
+    border-radius: 6px;
+    width: 80%;
+    max-width: 320px;
+    color: #111;
+    background: #fff;
+    margin-bottom: 16px;
+    transition: all 0.2s;
+}
+
+input[type="text"]:focus {
+    background: #111;
+    color: #fff;
+    border-color: #fff;
+    outline: none;
+}
+
+/* Dropdown Selects */
+.dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.unit-select {
+    padding: 8px 16px;
+    font-size: 18px;
+    border: 2px solid #111;
+    border-radius: 6px;
+    background: #fff;
+    color: #111;
+    transition: all 0.2s;
+}
+
+.unit-select:focus {
+    background: #111;
+    color: #fff;
+    border-color: #fff;
+    outline: none;
+}
+
+/* Output Display */
+#outputLength,
+#outputTemp {
+    font-size: 26px;
+    font-weight: bold;
+    color: #111;
+    background: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+    min-height: 32px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Convert Button (if used) */
+.convert {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 32px;
+    background: #111;
+    color: #fff;
+    border: 2px solid #111;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.convert:hover {
+    background: #fff;
+    color: #111;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+    .tabbuttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tabbutton {
+        font-size: 22px;
+        padding: 10px 20px;
+    }
+
+    .tabs {
+        padding: 24px 5vw;
+        max-width: 95vw;
+    }
+
+    input[type="text"] {
+        width: 95%;
+    }
 }
