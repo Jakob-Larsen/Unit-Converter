@@ -8,61 +8,72 @@
 }
 
 body {
-    background: #111;
-    color: #111;
+    background: #1f1f2e;
+    color: #333;
     min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
 }
 
-/* Tab Button Styles */
+/* Tab Button Sidebar */
 .tabbuttons {
     display: flex;
-    justify-content: center;
-    margin: 30px 0 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: #1f1f2e;
+    padding: 24px;
     gap: 12px;
+    width: 220px;
+    height: 100%;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
 }
 
 .tabbutton {
-    background: #fff;
-    color: #111;
-    border: 2px solid #111;
-    border-radius: 8px 8px 0 0;
-    padding: 16px 32px;
-    font-size: 28px;
+    background: transparent;
+    color: #ddd;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 18px;
     font-weight: bold;
+    text-align: left;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    outline: none;
 }
 
-.tabbutton.selected,
+.tabbutton:hover,
 .tabbutton:focus {
-    background: #111;
+    background: #4e89ae;
     color: #fff;
-    border-bottom: 4px solid #fff;
 }
 
-/* Tab Content Container */
+.tabbutton.selected {
+    background: #4e89ae;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+/* Tab Content Panel */
 .tabs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff;
-    width: 100%;
-    max-width: 600px;
-    padding: 32px 24px;
-    border-radius: 0 0 16px 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-    min-height: 300px;
+    background: #f4f4f9;
+    width: calc(100% - 220px);
+    height: 100%;
+    padding: 48px 32px;
+    overflow-y: auto;
 }
 
-/* Individual Tab Pane */
 .tab {
     display: none;
     width: 100%;
+    max-width: 700px;
 }
 
 .tab[style*="block"] {
@@ -73,20 +84,20 @@ body {
 input[type="text"] {
     padding: 10px 16px;
     font-size: 20px;
-    border: 2px solid #111;
+    border: 2px solid #4e89ae;
     border-radius: 6px;
     width: 80%;
     max-width: 320px;
-    color: #111;
+    color: #333;
     background: #fff;
     margin-bottom: 16px;
     transition: all 0.2s;
 }
 
 input[type="text"]:focus {
-    background: #111;
+    background: #4e89ae;
     color: #fff;
-    border-color: #fff;
+    border-color: #4e89ae;
     outline: none;
 }
 
@@ -102,26 +113,27 @@ input[type="text"]:focus {
 .unit-select {
     padding: 8px 16px;
     font-size: 18px;
-    border: 2px solid #111;
+    border: 2px solid #4e89ae;
     border-radius: 6px;
     background: #fff;
-    color: #111;
+    color: #333;
     transition: all 0.2s;
 }
 
 .unit-select:focus {
-    background: #111;
+    background: #4e89ae;
     color: #fff;
-    border-color: #fff;
+    border-color: #4e89ae;
     outline: none;
 }
 
 /* Output Display */
 #outputLength,
-#outputTemp {
+#outputTemp,
+#outputMass {
     font-size: 26px;
     font-weight: bold;
-    color: #111;
+    color: #4e89ae;
     background: #fff;
     padding: 10px 16px;
     border-radius: 6px;
@@ -136,9 +148,9 @@ input[type="text"]:focus {
     font-size: 22px;
     font-weight: bold;
     padding: 10px 32px;
-    background: #111;
+    background: #4e89ae;
     color: #fff;
-    border: 2px solid #111;
+    border: 2px solid #4e89ae;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
@@ -148,27 +160,41 @@ input[type="text"]:focus {
 
 .convert:hover {
     background: #fff;
-    color: #111;
+    color: #4e89ae;
+    border-color: #4e89ae;
 }
 
 /* Responsive Design */
-@media (max-width: 700px) {
-    .tabbuttons {
+@media (max-width: 768px) {
+    body {
         flex-direction: column;
-        gap: 8px;
+        height: auto;
+    }
+
+    .tabbuttons {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        overflow-x: auto;
+        padding: 12px;
+        justify-content: center;
     }
 
     .tabbutton {
-        font-size: 22px;
-        padding: 10px 20px;
+        flex: 0 0 auto;
+        font-size: 16px;
+        padding: 10px 14px;
     }
 
     .tabs {
-        padding: 24px 5vw;
-        max-width: 95vw;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 32px 16px;
     }
 
     input[type="text"] {
-        width: 95%;
+        width: 100%;
     }
 }

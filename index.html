@@ -10,17 +10,55 @@
 </head>
 <body>
     <div class="tabbuttons">   
-        <button class="tabbutton length" onclick="pickConvertion('length')">Length</buton>
-        <button class="tabbutton temperature" onclick="pickConvertion('temperature')">Temperature</buton>
-        <button class="tabbutton weight" onclick="pickConvertion('mass')">Mass</buton>
+        <button class="tabbutton weight" onclick="pickConvertion('mass')">Mass</button>
+        <button class="tabbutton length" onclick="pickConvertion('length')">Length</button>
+        <button class="tabbutton area" onclick="pickConvertion('area')">Area</button>
+        <button class="tabbutton volume" onclick="pickConvertion('volume')">Volume</button>
+        <button class="tabbutton temperature" onclick="pickConvertion('temperature')">Temperature</button>
+        <button class="tabbutton speed" onclick="pickConvertion('speed')">Speed</button>
+        <button class="tabbutton time" onclick="pickConvertion('time')">Time</button>
+        <button class="tabbutton energy" onclick="pickConvertion('energy')">Energy</button>
+        <button class="tabbutton angle" onclick="pickConvertion('angle')">Angle</button>
     </div>
     
     <div class="tabs">
-        <div class="tab" id="length">
-            <input type="text" placeholder="Enter length" id="lengthInput" onchange="convertLength()" autocomplete="false">
-        
+        <div class="tab" id="mass">
+            <input type="text" placeholder="Enter mass" id="inputMass" onchange="convertFunction('Mass')" autocomplete="new-password">
             <div class="dropdown">
-                <select id="lengthUnitInSelect" class="unit-select" onchange="updateLengthUnitIn(this.value)">
+                <select class="unit-select" onchange="updateUnit('In', 'Mass' , this.value)">
+                    <option value="mg">Milligram</option>
+                    <option value="cg">Centigram</option>
+                    <option value="dg">Decigram</option>
+                    <option value="g">Gram</option>
+                    <option value="dag">Decagram</option>
+                    <option value="hg">Hectogram</option>
+                    <option value="kg">Kilogram</option>
+                    <option value="mt">Metric Ton</option>
+                    <option value="oz">Ounce</option>
+                    <option value="lb">Pound</option>
+                    <option value="st">Stone</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select lass="unit-select" onchange="updateUnit('Out', 'Mass' , this.value)">
+                    <option value="mg">Milligram</option>
+                    <option value="cg">Centigram</option>
+                    <option value="dg">Decigram</option>
+                    <option value="g">Gram</option>
+                    <option value="dag">Decagram</option>
+                    <option value="hg">Hectogram</option>
+                    <option value="kg">Kilogram</option>
+                    <option value="mt">Metric Ton</option>
+                    <option value="oz">Ounce</option>
+                    <option value="lb">Pound</option>
+                    <option value="st">Stone</option>
+                </select>
+            </div>
+            <p id="outputMass">Start converting!</p>
+        </div>
+        <div class="tab" id="length">
+            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')" autocomplete="new-password">      
+            <div class="dropdown">
+                <selectclass="unit-select" onchange="updateUnit('In', 'Length' , this.value)">
                     <option value="mm">Millimeter</option>
                     <option value="cm">Centimeter</option>
                     <option value="dm">Decimeter</option>
@@ -34,7 +72,7 @@
                     <option value="ml">Mile</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
-                <select id="lengthUnitOutSelect" class="unit-select" onchange="updateLengthUnitOut(this.value)">
+                <select class="unit-select" onchange="updateUnit('Out', 'Length' , this.value)">
                     <option value="mm">Millimeter</option>
                     <option value="cm">Centimeter</option>
                     <option value="dm">Decimeter</option>
@@ -48,10 +86,78 @@
                     <option value="ml">Mile</option>
                 </select>
             </div>
-            <p id="outputLength"></p> 
+            <p id="outputLength">Start converting!</p> 
+        </div>
+        <div class="tab" id="area">
+            <input type="text" placeholder="Enter area" id="inputArea" onchange="convertFunction('Area')"
+                autocomplete="new-password">
+            <div class="dropdown">
+                <select class="unit-select" onchange="updateUnit('In', 'Area' , this.value)">
+                    <option value="mm2">Square Millimeter</option>
+                    <option value="cm2">Square Centimeter</option>
+                    <option value="dm2">Square Decimeter</option>
+                    <option value="m2">Square Meter</option>
+                    <option value="dam2">Square Decameter</option>
+                    <option value="hm2">Square Hectometer</option>
+                    <option value="km2">Square Kilometer</option>
+                    <option value="in2">Square Inch</option>
+                    <option value="ft2">Square Foot</option>
+                    <option value="yd2">Square Yard</option>
+                    <option value="ml2">Square Mile</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select id="lengthUnitOutSelect" class="unit-select" onchange="updateUnit('Out', 'Area' , this.value)">
+                    <option value="mm2">Square Millimeter</option>
+                    <option value="cm2">Square Centimeter</option>
+                    <option value="dm2">Square Decimeter</option>
+                    <option value="m2">Square Meter</option>
+                    <option value="dam2">Square Decameter</option>
+                    <option value="hm2">Square Hectometer</option>
+                    <option value="km2">Square Kilometer</option>
+                    <option value="in2">Square Inch</option>
+                    <option value="ft2">Square Foot</option>
+                    <option value="yd2">Square Yard</option>
+                    <option value="ml2">Square Mile</option>
+                </select>
+            </div>
+            <p id="outputArea">Start converting!</p>
+        </div>
+        <div class="tab" id="volume">
+            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')"
+                autocomplete="new-password">
+            <div class="dropdown">
+                <select id="lengthUnitInSelect" class="unit-select" onchange="updateUnit('In', 'Length' , this.value)">
+                    <option value="mm">Millimeter</option>
+                    <option value="cm">Centimeter</option>
+                    <option value="dm">Decimeter</option>
+                    <option value="m">Meter</option>
+                    <option value="dam">Decameter</option>
+                    <option value="hm">Hectometer</option>
+                    <option value="km">Kilometer</option>
+                    <option value="in">Inch</option>
+                    <option value="ft">Foot</option>
+                    <option value="yd">Yard</option>
+                    <option value="ml">Mile</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select id="lengthUnitOutSelect" class="unit-select" onchange="updateUnit('Out', 'Length' , this.value)">
+                    <option value="mm">Millimeter</option>
+                    <option value="cm">Centimeter</option>
+                    <option value="dm">Decimeter</option>
+                    <option value="m">Meter</option>
+                    <option value="dam">Decameter</option>
+                    <option value="hm">Hectometer</option>
+                    <option value="km">Kilometer</option>
+                    <option value="in">Inch</option>
+                    <option value="ft">Foot</option>
+                    <option value="yd">Yard</option>
+                    <option value="ml">Mile</option>
+                </select>
+            </div>
+            <p id="outputLength">Start converting!</p>
         </div>
         <div class="tab" id="temperature">
-            <input type="text" placeholder="Enter temperature" id="tempInput" onchange="convertTemp()" autocomplete="false">
+            <input type="text" placeholder="Enter temperature" id="tempInput" onchange="convertTemp()" autocomplete="new-password">
             
             <div class="dropdown">
                 <select id="temperatureUnitInSelect" class="unit-select" onchange="updateTempUnitIn(this.value)">
@@ -67,45 +173,25 @@
                 </select>
             </div>
             
-            <p id="outputTemp"></p>
+            <p id="outputTemp">Start converting!</p>
+        </div>    
+        <div class="tab" id="speed">
+            <p>speed</p>
         </div>
-
-        <div class="tab" id="mass">
-            <input type="text" placeholder="Enter mass" id="massInput" onchange="convertMass()" autocomplete="false">
-            <div class="dropdown">
-                <select id="massUnitInSelect" class="unit-select" onchange="updateMassUnitIn(this.value)">
-                    <option value="mg">Milligram</option>
-                    <option value="cg">Centigram</option>
-                    <option value="dg">Decigram</option>
-                    <option value="g">Gram</option>
-                    <option value="dag">Decagram</option>
-                    <option value="hg">Hectogram</option>
-                    <option value="kg">Kilogram</option>
-                    <option value="mt">Metric Ton</option>
-                    <option value="oz">Ounce</option>
-                    <option value="lb">Pound</option>
-                    <option value="st">Stone</option>
-                </select>
-                <span style="margin: 0 10px;">to</span>
-                <select id="massUnitOutSelect" class="unit-select" onchange="updateMassUnitOut(this.value)">
-                    <option value="mg">Milligram</option>
-                    <option value="cg">Centigram</option>
-                    <option value="dg">Decigram</option>
-                    <option value="g">Gram</option>
-                    <option value="dag">Decagram</option>
-                    <option value="hg">Hectogram</option>
-                    <option value="kg">Kilogram</option>
-                    <option value="mt">Metric Ton</option>
-                    <option value="oz">Ounce</option>
-                    <option value="lb">Pound</option>
-                    <option value="st">Stone</option>
-                </select>
-            </div>
-            <p id="outputMass"></p>
+        <div class="tab" id="time">
+            <p>time</p>
+        </div>
+        <div class="tab" id="energy">
+            <p>energy</p>
+        </div>
+        <div class="tab" id="angle">
+            <p>angle</p>
         </div>
     </div>
 
 
-    <script src = index.js></script>
+    <script type='module'src = index.js></script>
+    
 </body>
 </html>
+

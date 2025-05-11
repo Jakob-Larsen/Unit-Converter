@@ -1,0 +1,246 @@
+export const conversionTables = {
+    mass: {
+      base: "g",
+      units: {
+        mg: v => v / 1000,
+        cg: v => v / 100,
+        dg: v => v / 10,
+        g: v => v,
+        dag: v => v * 10,
+        hg: v => v * 100,
+        kg: v => v * 1000,
+        mt: v => v * 1e6,
+        oz: v => v * 28.3495,
+        lb: v => v * 453.592,
+        st: v => v * 6350.29,
+      },
+      fromBase: {
+        mg: v => v * 1000,
+        cg: v => v * 100,
+        dg: v => v * 10,
+        g: v => v,
+        dag: v => v / 10,
+        hg: v => v / 100,
+        kg: v => v / 1000,
+        mt: v => v / 1e6,
+        oz: v => v / 28.3495,
+        lb: v => v / 453.592,
+        st: v => v / 6350.29,
+      }
+    },
+  
+    length: {
+      base: "m",
+      units: {
+        mm: v => v / 1000,
+        cm: v => v / 100,
+        dm: v => v / 10,
+        m: v => v,
+        dam: v => v * 10,
+        hm: v => v * 100,
+        km: v => v * 1000,
+        in: v => v * 0.0254,
+        ft: v => v * 0.3048,
+        yd: v => v * 0.9144,
+        mi: v => v * 1609.34,
+      },
+      fromBase: {
+        mm: v => v * 1000,
+        cm: v => v * 100,
+        dm: v => v * 10,
+        m: v => v,
+        dam: v => v / 10,
+        hm: v => v / 100,
+        km: v => v / 1000,
+        in: v => v / 0.0254,
+        ft: v => v / 0.3048,
+        yd: v => v / 0.9144,
+        mi: v => v / 1609.34,
+      }
+    },
+  
+    area: {
+      base: "m2",
+      units: {
+        mm2: v => v / 1e6,
+        cm2: v => v / 1e4,
+        dm2: v => v / 100,
+        m2: v => v,
+        dam2: v => v * 100,
+        hm2: v => v * 1e4,
+        km2: v => v * 1e6,
+        in2: v => v * 0.00064516,
+        ft2: v => v * 0.092903,
+        yd2: v => v * 0.836127,
+        ml2: v => v * 2.59e+6,
+      },
+      fromBase: {
+        mm2: v => v * 1e6,
+        cm2: v => v * 1e4,
+        dm2: v => v * 100,
+        m2: v => v,
+        dam2: v => v / 100,
+        hm2: v => v / 1e4,
+        km2: v => v / 1e6,
+        in2: v => v / 0.00064516,
+        ft2: v => v / 0.092903,
+        yd2: v => v / 0.836127,
+        ml2: v => v / 2.59e+6,
+      }
+    },
+  
+    volume: {
+      base: "m3",
+      units: {
+        mm3: v => v / 1e9,
+        cm3: v => v / 1e6,
+        dm3: v => v / 1000,
+        m3: v => v,
+        dam3: v => v * 1000,
+        hm3: v => v * 1e6,
+        km3: v => v * 1e9,
+        ml: v => v * 0.001,
+        cl: v => v * 0.01,
+        dl: v => v * 0.1,
+        l: v => v,
+        hl: v => v * 100,
+        kl: v => v * 1000,
+        in3: v => v * 0.0000163871,
+        ft3: v => v * 0.0283168,
+        yd3: v => v * 0.764555,
+        mi3: v => v * 4.168e+9,
+        gal: v => v * 3.78541,
+        qt: v => v * 0.946353,
+        cup: v => v * 0.236588,
+        pint: v => v * 0.473176,
+        floz: v => v * 0.0295735,
+        tbsp: v => v * 0.0147868,
+        tsp: v => v * 0.00492892,
+      },
+      fromBase: {
+        mm3: v => v * 1e9,
+        cm3: v => v * 1e6,
+        dm3: v => v * 1000,
+        m3: v => v,
+        dam3: v => v / 1000,
+        hm3: v => v / 1e6,
+        km3: v => v / 1e9,
+        ml: v => v / 0.001,
+        cl: v => v / 0.01,
+        dl: v => v / 0.1,
+        l: v => v,
+        hl: v => v / 100,
+        kl: v => v / 1000,
+        in3: v => v / 0.0000163871,
+        ft3: v => v / 0.0283168,
+        yd3: v => v / 0.764555,
+        mi3: v => v / 4.168e+9,
+        gal: v => v / 3.78541,
+        qt: v => v / 0.946353,
+        cup: v => v / 0.236588,
+        pint: v => v / 0.473176,
+        floz: v => v / 0.0295735,
+        tbsp: v => v / 0.0147868,
+        tsp: v => v / 0.00492892,
+      }
+    },
+  
+    temperature: {
+      base: "c",
+      units: {
+        c: v => v,
+        f: v => v * 1.8 + 32,
+        k: v => v + 273.15,
+      },
+      fromBase: {
+        c: v => v,
+        f: v => (v - 32) / 1.8,
+        k: v => v - 273.15,
+      }
+    },
+  
+    speed: {
+      base: "mps",
+      units: {
+        mps: v => v,
+        kmph: v => v * 3.6,
+        mph: v => v * 2.23694,
+        fps: v => v * 3.28084,
+        knots: v => v * 1.94384,
+        mach: v => v / 343.2,
+      },
+      fromBase: {
+        mps: v => v,
+        kmph: v => v / 3.6,
+        mph: v => v / 2.23694,
+        fps: v => v / 3.28084,
+        knots: v => v / 1.94384,
+        mach: v => v * 343.2,
+      }
+    },
+  
+    time: {
+      base: "d",
+      units: {
+        ms: v => v / 86400000,
+        s: v => v / 86400,
+        min: v => v / 1440,
+        h: v => v / 24,
+        d: v => v,
+        w: v => v / 7,
+        fn: v => v / 14,
+        mo: v => v / 30.44,
+        q: v => v / 91.25,
+        y: v => v / 365.25,
+      },
+      fromBase: {
+        ms: v => v * 86400000,
+        s: v => v * 86400,
+        min: v => v * 1440,
+        h: v => v * 24,
+        d: v => v,
+        w: v => v * 7,
+        fn: v => v * 14,
+        mo: v => v * 30.44,
+        q: v => v * 91.25,
+        y: v => v * 365.25,
+      }
+    },
+  
+    energy: {
+      base: "kj",
+      units: {
+        j: v => v / 1000,
+        kj: v => v,
+        tc: v => v / 4.184,     // thermal calorie
+        fc: v => v / 4184,      // food calorie (kcal)
+        mj: v => v * 1000,
+        gj: v => v * 1e6,
+        kwh: v => v / 3600,
+      },
+      fromBase: {
+        j: v => v * 1000,
+        kj: v => v,
+        tc: v => v * 4.184,
+        fc: v => v * 4184,
+        mj: v => v / 1000,
+        gj: v => v / 1e6,
+        kwh: v => v * 3600,
+      }
+    },
+  
+    angle: {
+      base: "deg",
+      units: {
+        deg: v => v,
+        rad: v => v * Math.PI / 180,
+        grad: v => v * (10 / 9),
+      },
+      fromBase: {
+        deg: v => v,
+        rad: v => v * 180 / Math.PI,
+        grad: v => v * (9 / 10),
+      }
+    },
+  };
+  
