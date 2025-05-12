@@ -23,7 +23,7 @@
     
     <div class="tabs">
         <div class="tab" id="mass">
-            <input type="text" placeholder="Enter mass" id="inputMass" onchange="convertFunction('Mass')" autocomplete="new-password">
+            <input type="text" placeholder="Enter mass" id="inputMass" onchange="convertFunction('Mass')">
             <div class="dropdown">
                 <select class="unit-select" onchange="updateUnit('In', 'Mass' , this.value)">
                     <option value="mg">Milligram</option>
@@ -39,7 +39,7 @@
                     <option value="st">Stone</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
-                <select lass="unit-select" onchange="updateUnit('Out', 'Mass' , this.value)">
+                <select class="unit-select" onchange="updateUnit('Out', 'Mass' , this.value)">
                     <option value="mg">Milligram</option>
                     <option value="cg">Centigram</option>
                     <option value="dg">Decigram</option>
@@ -56,8 +56,7 @@
             <p id="outputMass">Start converting!</p>
         </div>
         <div class="tab" id="length">
-            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')" autocomplete="new-password">      
-            <div class="dropdown">
+            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')" autocomplete="new-password">      >
                 <select class="unit-select" onchange="updateUnit('In', 'Length' , this.value)">
                     <option value="mm">Millimeter</option>
                     <option value="cm">Centimeter</option>
@@ -89,8 +88,7 @@
             <p id="outputLength">Start converting!</p> 
         </div>
         <div class="tab" id="area">
-            <input type="text" placeholder="Enter area" id="inputArea" onchange="convertFunction('Area')"
-                autocomplete="new-password">
+            <input type="text" placeholder="Enter area" id="inputArea" onchange="convertFunction('Area')">
             <div class="dropdown">
                 <select class="unit-select" onchange="updateUnit('In', 'Area' , this.value)">
                     <option value="mm2">Square Millimeter</option>
@@ -123,50 +121,78 @@
             <p id="outputArea">Start converting!</p>
         </div>
         <div class="tab" id="volume">
-            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')"
-                autocomplete="new-password">
+            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')">
             <div class="dropdown">
                 <select id="lengthUnitInSelect" class="unit-select" onchange="updateUnit('In', 'Length' , this.value)">
-                    <option value="mm">Millimeter</option>
-                    <option value="cm">Centimeter</option>
-                    <option value="dm">Decimeter</option>
-                    <option value="m">Meter</option>
-                    <option value="dam">Decameter</option>
-                    <option value="hm">Hectometer</option>
-                    <option value="km">Kilometer</option>
-                    <option value="in">Inch</option>
-                    <option value="ft">Foot</option>
-                    <option value="yd">Yard</option>
-                    <option value="ml">Mile</option>
+                    <option value="mm3">Millimeter</option>
+                    <option value="cm3">Centimeter</option>
+                    <option value="dm3">Decimeter</option>
+                    <option value="m3">Meter</option>
+                    <option value="mm3">Square Millimeter</option>
+                    <option value="cm3">Square Centimeter</option>
+                    <option value="dm3">Square Decimeter</option>
+                    <option value="m3">Square Meter</option>
+                    <option value="dam3">Square Decameter</option>
+                    <option value="hm3">Square Hectometer</option>
+                    <option value="km3">Square Kilometer</option>
+                    <option value="ml">Milliliter</option>
+                    <option value="cl">Centiliter</option>
+                    <option value="dl">Deciliter</option>
+                    <option value="l">Liter</option>
+                    <option value="hl">Hectoliter</option>
+                    <option value="kl">Kiloliter</option>
+                    <option value="in3">Square Inch</option>
+                    <option value="ft3">Square Foot</option>
+                    <option value="yd3">Square Yard</option>
+                    <option value="ml3">Square Mile</option>
+                    <option value="floz">Fluid Ounce</option>
+                    <option value="pint">Pint</option>
+                    <option value="qt">Quart</option>
+                    <option value="gal">Gallon</option>
+                    <option value="cup">Cup</option>
+                    <option value="tbsp">Tablespoon</option>
+                    <option value="tsp">Teaspoon</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
                 <select id="lengthUnitOutSelect" class="unit-select" onchange="updateUnit('Out', 'Length' , this.value)">
-                    <option value="mm">Millimeter</option>
-                    <option value="cm">Centimeter</option>
-                    <option value="dm">Decimeter</option>
-                    <option value="m">Meter</option>
-                    <option value="dam">Decameter</option>
-                    <option value="hm">Hectometer</option>
-                    <option value="km">Kilometer</option>
-                    <option value="in">Inch</option>
-                    <option value="ft">Foot</option>
-                    <option value="yd">Yard</option>
-                    <option value="ml">Mile</option>
+                    <option value="mm3">Square Millimeter</option>
+                    <option value="cm3">Square Centimeter</option>
+                    <option value="dm3">Square Decimeter</option>
+                    <option value="m3">Square Meter</option>
+                    <option value="dam3">Square Decameter</option>
+                    <option value="hm3">Square Hectometer</option>
+                    <option value="km3">Square Kilometer</option>
+                    <option value="ml">Milliliter</option>
+                    <option value="cl">Centiliter</option>
+                    <option value="dl">Deciliter</option>
+                    <option value="l">Liter</option>
+                    <option value="hl">Hectoliter</option>
+                    <option value="kl">Kiloliter</option>
+                    <option value="in3">Square Inch</option>
+                    <option value="ft3">Square Foot</option>
+                    <option value="yd3">Square Yard</option>
+                    <option value="ml3">Square Mile</option>
+                    <option value="floz">Fluid Ounce</option>
+                    <option value="pint">Pint</option>
+                    <option value="qt">Quart</option>
+                    <option value="gal">Gallon</option>
+                    <option value="cup">Cup</option>
+                    <option value="tbsp">Tablespoon</option>
+                    <option value="tsp">Teaspoon</option>
                 </select>
             </div>
             <p id="outputLength">Start converting!</p>
         </div>
         <div class="tab" id="temperature">
-            <input type="text" placeholder="Enter temperature" id="tempInput" onchange="convertTemp()" autocomplete="new-password">
-            
+            <input type="text" placeholder="Enter temperature" id="inputTemp" onchange="convertFunction("Temp")">           
             <div class="dropdown">
-                <select id="temperatureUnitInSelect" class="unit-select" onchange="updateTempUnitIn(this.value)">
+                <select id="temperatureUnitInSelect" class="unit-select" onchange="updateUnit('In','Temp',this.value)">
                     <option value="c">Celcius</option>
                     <option value="f">Fahrenheit</option>
                     <option value="k">Kelvin</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
-                <select id="temperatureUnitOutSelect" class="unit-select" onchange="updateTempUnitOut(this.value)">
+                <select id="temperatureUnitOutSelect" class="unit-select" onchange="updateUnit('Out','Temp', this.value))"></select>
                     <option value="c">Celcius</option>
                     <option value="f">Fahrenheit</option>
                     <option value="k">Kelvin</option>  

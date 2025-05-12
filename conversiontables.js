@@ -108,7 +108,7 @@ export const conversionTables = {
         in3: v => v * 0.0000163871,
         ft3: v => v * 0.0283168,
         yd3: v => v * 0.764555,
-        mi3: v => v * 4.168e+9,
+        ml3: v => v * 4.168e+9,
         gal: v => v * 3.78541,
         qt: v => v * 0.946353,
         cup: v => v * 0.236588,
@@ -134,7 +134,7 @@ export const conversionTables = {
         in3: v => v / 0.0000163871,
         ft3: v => v / 0.0283168,
         yd3: v => v / 0.764555,
-        mi3: v => v / 4.168e+9,
+        ml3: v => v / 4.168e+9,
         gal: v => v / 3.78541,
         qt: v => v / 0.946353,
         cup: v => v / 0.236588,
@@ -206,7 +206,6 @@ export const conversionTables = {
         y: v => v * 365.25,
       }
     },
-  
     energy: {
       base: "kj",
       units: {
