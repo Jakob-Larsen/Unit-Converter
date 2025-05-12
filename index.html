@@ -10,20 +10,25 @@
 </head>
 <body>
     <div class="tabbuttons">   
-        <button class="tabbutton weight" onclick="pickConvertion('mass')">Mass</button>
-        <button class="tabbutton length" onclick="pickConvertion('length')">Length</button>
-        <button class="tabbutton area" onclick="pickConvertion('area')">Area</button>
-        <button class="tabbutton volume" onclick="pickConvertion('volume')">Volume</button>
-        <button class="tabbutton temperature" onclick="pickConvertion('temperature')">Temperature</button>
-        <button class="tabbutton speed" onclick="pickConvertion('speed')">Speed</button>
-        <button class="tabbutton time" onclick="pickConvertion('time')">Time</button>
-        <button class="tabbutton energy" onclick="pickConvertion('energy')">Energy</button>
-        <button class="tabbutton angle" onclick="pickConvertion('angle')">Angle</button>
+        <button class="tabbutton" onclick="pickConvertion('home')">Home</button>
+        <button class="tabbutton" onclick="pickConvertion('mass')">Mass</button>
+        <button class="tabbutton" onclick="pickConvertion('length')">Length</button>
+        <button class="tabbutton" onclick="pickConvertion('area')">Area</button>
+        <button class="tabbutton" onclick="pickConvertion('volume')">Volume</button>
+        <button class="tabbutton" onclick="pickConvertion('temperature')">Temperature</button>
+        <button class="tabbutton" onclick="pickConvertion('speed')">Speed</button>
+        <button class="tabbutton" onclick="pickConvertion('time')">Time</button>
+        <button class="tabbutton" onclick="pickConvertion('energy')">Energy</button>
+        <button class="tabbutton" onclick="pickConvertion('angle')">Angle</button>
+
+        <button class="tabbutton" onclick="pickConvertion('calculator')">Calculator</button>
     </div>
     
     <div class="tabs">
+        <div class="'tab" id="home">
+        </div>
         <div class="tab" id="mass">
-            <input type="text" placeholder="Enter mass" id="inputMass" onchange="convertFunction('Mass')" autocomplete="new-password">
+            <input type="text" placeholder="Enter mass" id="inputMass" onchange="convertFunction('Mass')">
             <div class="dropdown">
                 <select class="unit-select" onchange="updateUnit('In', 'Mass' , this.value)">
                     <option value="mg">Milligram</option>
@@ -56,7 +61,7 @@
             <p id="outputMass">Start converting!</p>
         </div>
         <div class="tab" id="length">
-            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')" autocomplete="new-password">      
+            <input type="text" placeholder="Enter length" id="inputLength" onchange="convertFunction('Length')" >      
             <div class="dropdown">
                 <select class="unit-select" onchange="updateUnit('In', 'Length' , this.value)">
                     <option value="mm">Millimeter</option>
@@ -69,7 +74,7 @@
                     <option value="in">Inch</option>
                     <option value="ft">Foot</option>
                     <option value="yd">Yard</option>
-                    <option value="ml">Mile</option>
+                    <option value="mi">Mile</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
                 <select class="unit-select" onchange="updateUnit('Out', 'Length' , this.value)">
@@ -83,14 +88,14 @@
                     <option value="in">Inch</option>
                     <option value="ft">Foot</option>
                     <option value="yd">Yard</option>
-                    <option value="ml">Mile</option>
+                    <option value="mi">Mile</option>
                 </select>
             </div>
             <p id="outputLength">Start converting!</p> 
         </div>
         <div class="tab" id="area">
             <input type="text" placeholder="Enter area" id="inputArea" onchange="convertFunction('Area')"
-                autocomplete="new-password">
+                >
             <div class="dropdown">
                 <select class="unit-select" onchange="updateUnit('In', 'Area' , this.value)">
                     <option value="mm2">Square Millimeter</option>
@@ -103,7 +108,7 @@
                     <option value="in2">Square Inch</option>
                     <option value="ft2">Square Foot</option>
                     <option value="yd2">Square Yard</option>
-                    <option value="ml2">Square Mile</option>
+                    <option value="mi2">Square Mile</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
                 <select class="unit-select" onchange="updateUnit('Out', 'Area' , this.value)">
@@ -117,14 +122,14 @@
                     <option value="in2">Square Inch</option>
                     <option value="ft2">Square Foot</option>
                     <option value="yd2">Square Yard</option>
-                    <option value="ml2">Square Mile</option>
+                    <option value="mi2">Square Mile</option>
                 </select>
             </div>
             <p id="outputArea">Start converting!</p>
         </div>
         <div class="tab" id="volume">
             <input type="text" placeholder="Enter volume" id="inputVol" onchange="convertFunction('Vol')"
-                autocomplete="new-password">
+                >
             <div class="dropdown">
                 <select class="unit-select" onchange="updateUnit('In', 'Vol' , this.value)">
                     <option value="mm3">Cubic Millimeter</option>
@@ -143,7 +148,7 @@
                     <option value="in3">Cubic Inch</option>
                     <option value="ft3">Cubic Foot</option>
                     <option value="yd3">Cubic Yard</option>
-                    <option value="ml3">Cubic Mile</option>
+                    <option value="mi3">Cubic Mile</option>
                     <option value="floz">Fluid Ounce</option>
                     <option value="pint">Pint</option>
                     <option value="qt">Quart</option>
@@ -170,7 +175,7 @@
                     <option value="in3">Cubic Inch</option>
                     <option value="ft3">Cubic Foot</option>
                     <option value="yd3">Cubic Yard</option>
-                    <option value="ml3">Cubic Mile</option>
+                    <option value="mi3">Cubic Mile</option>
                     <option value="floz">Fluid Ounce</option>
                     <option value="pint">Pint</option>
                     <option value="qt">Quart</option>
@@ -183,41 +188,121 @@
             <p id="outputVol">Start converting!</p>
         </div>
         <div class="tab" id="temperature">
-            <input type="text" placeholder="Enter temperature" id="tempInput" onchange="convertTemp()" autocomplete="new-password">
-            
+            <input type="text" placeholder="Enter temperature" id="inputTemp" onchange="convertFunction('Temp')" >
             <div class="dropdown">
-                <select id="temperatureUnitInSelect" class="unit-select" onchange="updateTempUnitIn(this.value)">
+                <select class="unit-select" onchange="updateUnit('In', 'Temp' , this.value)">
                     <option value="c">Celcius</option>
                     <option value="f">Fahrenheit</option>
                     <option value="k">Kelvin</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
-                <select id="temperatureUnitOutSelect" class="unit-select" onchange="updateTempUnitOut(this.value)">
+                <select class="unit-select" onchange="updateUnit('Out', 'Temp' , this.value)">
                     <option value="c">Celcius</option>
                     <option value="f">Fahrenheit</option>
                     <option value="k">Kelvin</option>  
                 </select>
             </div>
-            
             <p id="outputTemp">Start converting!</p>
         </div>    
         <div class="tab" id="speed">
-            <p>speed</p>
+            <input type="text" placeholder="Enter speed" id="inputSpeed" onchange="convertFunction('Speed')">
+            <div class="dropdown">
+                <select class="unit-select" onchange="updateUnit('In', 'Speed' , this.value)">
+                    <option value="mps">Meter Per Second</option>
+                    <option value="kmph">Kilometer Per Hour</option>
+                    <option value="mph">Mile Per Hour</option>
+                    <option value="fps">Feet Per Second</option>
+                    <option value="knots">Knots</option>
+                    <option value="mach">Mach</option>
+                </select>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select class="unit-select" onchange="updateUnit('Out', 'Speed' , this.value)">
+                </select>
+            </div>
+            <p id="outputSpeed">Start converting!</p>
         </div>
         <div class="tab" id="time">
-            <p>time</p>
+            <input type="text" placeholder="Enter time" id="inputTime" onchange="convertFunction('Time')">
+            <div class="dropdown">
+                <select class="unit-select" onchange="updateUnit('In', 'Time' , this.value)">
+                    <option value="ms">Millisecond</option>
+                    <option value="s">Second</option>
+                    <option value="min">Minute</option>
+                    <option value="h">Hour</option>
+                    <option value="d">Day</option>
+                    <option value="w">Week</option>
+                    <option value="fn">Fortnight</option>
+                    <option value="mo">Month</option>
+                    <option value="q">Quarter</option>
+                    <option value="y">Year</option>
+                    </select>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select class="unit-select" onchange="updateUnit('Out', 'Time' , this.value)">
+                    <option value="ms">Millisecond</option>
+                    <option value="s">Second</option>
+                    <option value="min">Minute</option>
+                    <option value="h">Hour</option>
+                    <option value="d">Day</option>
+                    <option value="w">Week</option>
+                    <option value="fn">Fortnight</option>
+                    <option value="mo">Month</option>
+                    <option value="q">Quarter</option>
+                    <option value="y">Year</option>
+                </select>
+            </div>
+            <p id="outputTime">Start converting!</p>
         </div>
         <div class="tab" id="energy">
-            <p>energy</p>
+            <input type="text" placeholder="Enter energy" id="inputEnergy" onchange="convertFunction('Energy')">
+            <div class="dropdown">
+                <select class="unit-select" onchange="updateUnit('In', 'Energy' , this.value)">
+                    <option value="j">Joule</option>
+                    <option value="kj">Kilojoule</option>
+                    <option value="tc">Thermal Calorie</option>
+                    <option value="fc">Food Calorie</option>
+                    <option value="mj">Megajoule</option>
+                    <option value="gj">Gigajoule</option>
+                    <option value="kwh">Kilowatt Hour</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select class="unit-select" onchange="updateUnit('Out', 'Energy' , this.value)">
+                    <option value="j">Joule</option>
+                    <option value="kj">Kilojoule</option>
+                    <option value="tc">Thermal Calorie</option>
+                    <option value="fc">Food Calorie</option>
+                    <option value="mj">Megajoule</option>
+                    <option value="gj">Gigajoule</option>
+                    <option value="kwh">Kilowatt Hour</option>
+                </select>
+            </div>
+            <p id="outputEnergy">Start converting!</p>
         </div>
         <div class="tab" id="angle">
-            <p>angle</p>
+            <input type="text" placeholder="Enter angle" id="inputAngle" onchange="convertFunction('Angle')">
+            <div class="dropdown">
+                <select class="unit-select" onchange="updateUnit('In', 'Angle' , this.value)">
+                    <option value="deg">Degrees</option>
+                    <option value="rad">Radians</option>
+                    <option value="grad">Gradians</option>
+                </select>
+                <span style="margin: 0 10px;">to</span>
+                <select class="unit-select" onchange="updateUnit('Out', 'Angle' , this.value)">
+                    <option value="deg">Degrees</option>
+                    <option value="rad">Radians</option>
+                    <option value="grad">Gradians</option>
+                </select>
+            </div>
+            <p id="outputAngle">Start converting!</p>
+        </div>
+        <div class="'tab" id="calclulator">
+            <p id=""></p>
+
         </div>
     </div>
 
-
     <script type='module'src = index.js></script>
-    
 </body>
 </html>
 

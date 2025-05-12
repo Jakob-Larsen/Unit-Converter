@@ -31,16 +31,15 @@ const angleOutputElement = document.querySelector('#outputAngle');
 
 
 function roundRight(num){
-    var numStr = num.toString();
-    if (numStr.includes('.')) {
-        var decimals = numStr.split('.')[1].length;
-        return num.toFixed(decimals);
-    }else{
-        return num.toFixed(0);
+    if (num === 0) return "0";
+    if (Math.abs(num) >= 1) {
+        return Number(num.toFixed(4)).toString();
+    } else if (Math.abs(num) < 1e-6) {
+        return num.toExponential(4); // scientific notation for very small numbers
+    } else {
+        return Number(num.toFixed(8)).toString();
     }
-    
 }
-
 
 function pickConvertion(convertion) {
     var i, tabs;
@@ -67,15 +66,14 @@ function pickConvertion(convertion) {
     }
 }
 
-function convert(input, unitIn,unitOut, type, element){
-    if(isNaN(input)){
+function convert(input, unitIn, unitOut, type, element){
+    const value = Number(input);
+    if(isNaN(value)){
         element.innerHTML = 'Please enter a valid number';
         return;
-    }else{
-        var output = conversionTables[type].fromBase[unitOut](conversionTables[type].units[unitIn](input));
-        
+    } else {
+        var output = conversionTables[type].fromBase[unitOut](conversionTables[type].units[unitIn](value));
         element.innerHTML = roundRight(output) + " " + unitOut;
-
     }
 }
 
@@ -90,15 +88,14 @@ function convertFunction(type){
     
     var input = document.getElementById('input'+type).value;
     var typeLower = type.toLowerCase();
+
     eval(`convert(input, ${typeLower}InUnit, ${typeLower}OutUnit, '${typeLower}', ${typeLower}OutputElement);`);
-
-
 }
-
 
 window.onload = () =>{
     pickConvertion('mass')
-}
+
 window.pickConvertion = pickConvertion;
 window.convertFunction = convertFunction;
 window.updateUnit = updateUnit;
+}

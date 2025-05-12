@@ -72,7 +72,7 @@ export const conversionTables = {
         in2: v => v * 0.00064516,
         ft2: v => v * 0.092903,
         yd2: v => v * 0.836127,
-        ml2: v => v * 2.59e+6,
+        mi2: v => v * 2.59e+6,
       },
       fromBase: {
         mm2: v => v * 1e6,
@@ -85,7 +85,7 @@ export const conversionTables = {
         in2: v => v / 0.00064516,
         ft2: v => v / 0.092903,
         yd2: v => v / 0.836127,
-        ml2: v => v / 2.59e+6,
+        mi2: v => v / 2.59e+6,
       }
     },
   
@@ -99,7 +99,7 @@ export const conversionTables = {
         dam3: v => v * 1000,
         hm3: v => v * 1e6,
         km3: v => v * 1e9,
-        ml: v => v * 0.001,
+        mi: v => v * 0.001,
         cl: v => v * 0.01,
         dl: v => v * 0.1,
         l: v => v,
@@ -108,7 +108,7 @@ export const conversionTables = {
         in3: v => v * 0.0000163871,
         ft3: v => v * 0.0283168,
         yd3: v => v * 0.764555,
-        ml3: v => v * 4.168e+9,
+        mi3: v => v * 4.168e+9,
         gal: v => v * 3.78541,
         qt: v => v * 0.946353,
         cup: v => v * 0.236588,
@@ -125,7 +125,7 @@ export const conversionTables = {
         dam3: v => v / 1000,
         hm3: v => v / 1e6,
         km3: v => v / 1e9,
-        ml: v => v / 0.001,
+        mi: v => v / 0.001,
         cl: v => v / 0.01,
         dl: v => v / 0.1,
         l: v => v,
@@ -134,7 +134,7 @@ export const conversionTables = {
         in3: v => v / 0.0000163871,
         ft3: v => v / 0.0283168,
         yd3: v => v / 0.764555,
-        ml3: v => v / 4.168e+9,
+        mi3: v => v / 4.168e+9,
         gal: v => v / 3.78541,
         qt: v => v / 0.946353,
         cup: v => v / 0.236588,
@@ -145,17 +145,17 @@ export const conversionTables = {
       }
     },
   
-    temperature: {
+    temp: {
       base: "c",
       units: {
-        c: v => v,
-        f: v => v * 1.8 + 32,
-        k: v => v + 273.15,
+        c: v => v,                  
+        f: v => (v - 32) / 1.8,     
+        k: v => v - 273.15,         
       },
       fromBase: {
-        c: v => v,
-        f: v => (v - 32) / 1.8,
-        k: v => v - 273.15,
+        c: v => v,                  
+        f: v => v * 1.8 + 32,       
+        k: v => v + 273.15,         
       }
     },
   
