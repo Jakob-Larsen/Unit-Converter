@@ -11,26 +11,25 @@ body {
     background: #1f1f2e;
     color: #333;
     min-height: 100vh;
-    height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: row;
     overflow: hidden;
 }
 
-/* Tab Button Sidebar */
+/* Sidebar Buttons */
 .tabbuttons {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: flex-start;
     background: #1f1f2e;
     padding: 24px;
     gap: 12px;
     width: 220px;
-    height: 100%;
+    height: 100vh;
     box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
     overflow-y: auto;
+    flex-shrink: 0;
 }
 
 .tabbutton {
@@ -58,14 +57,14 @@ body {
     border: 2px solid #fff;
 }
 
-/* Tab Content Panel */
+/* Content Area */
 .tabs {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #f4f4f9;
-    width: calc(100% - 220px);
-    height: 100%;
+    width: 100%;
+    height: 100vh;
     padding: 48px 32px;
     overflow-y: auto;
 }
@@ -80,13 +79,13 @@ body {
     display: block !important;
 }
 
-/* Input Field */
+/* Inputs */
 input[type="text"] {
     padding: 10px 16px;
     font-size: 20px;
     border: 2px solid #4e89ae;
     border-radius: 6px;
-    width: 80%;
+    width: 100%;
     max-width: 320px;
     color: #333;
     background: #fff;
@@ -101,7 +100,7 @@ input[type="text"]:focus {
     outline: none;
 }
 
-/* Dropdown Selects */
+/* Dropdowns */
 .dropdown {
     display: flex;
     flex-wrap: wrap;
@@ -127,7 +126,7 @@ input[type="text"]:focus {
     outline: none;
 }
 
-/* Output Display */
+/* Output Displays */
 #outputLength,
 #outputTemp,
 #outputMass {
@@ -141,9 +140,11 @@ input[type="text"]:focus {
     min-height: 32px;
     letter-spacing: 1px;
     text-align: center;
+    width: 100%;
+    max-width: 400px;
 }
 
-/* Convert Button (if used) */
+/* Convert Button */
 .convert {
     font-size: 22px;
     font-weight: bold;
@@ -164,7 +165,7 @@ input[type="text"]:focus {
     border-color: #4e89ae;
 }
 
-/* Responsive Design */
+/* Mobile Styles */
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -177,6 +178,7 @@ input[type="text"]:focus {
         height: auto;
         box-shadow: none;
         overflow-x: auto;
+        overflow-y: hidden;
         padding: 12px;
         justify-content: center;
     }
@@ -185,6 +187,7 @@ input[type="text"]:focus {
         flex: 0 0 auto;
         font-size: 16px;
         padding: 10px 14px;
+        border-radius: 8px;
     }
 
     .tabs {
@@ -196,5 +199,24 @@ input[type="text"]:focus {
 
     input[type="text"] {
         width: 100%;
+        max-width: 100%;
+    }
+
+    .dropdown {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .unit-select {
+        width: 100%;
+    }
+
+    #outputLength,
+    #outputTemp,
+    #outputMass {
+        font-size: 20px;
+        max-width: 100%;
     }
 }

@@ -34,7 +34,7 @@ function roundRight(num){
     var numStr = num.toString();
     if (numStr.includes('.')) {
         var decimals = numStr.split('.')[1].length;
-        return parseFloat(num).toFixed(decimals);
+        return num.toFixed(decimals);
     }else{
         return num.toFixed(0);
     }
