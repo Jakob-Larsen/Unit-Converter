@@ -29,7 +29,9 @@ const energyOutputElement = document.querySelector('#outputEnergy');
 var angleInUnit='deg', angleOutUnit = 'deg';
 const angleOutputElement = document.querySelector('#outputAngle');
 
-
+var calculation;
+const calcOutputElement = document.querySelector('#outputCalc');
+const calcInputElement = document.querySelector('#inputCalc');
 
 
 function roundRight(num){
@@ -100,4 +102,25 @@ window.onload = () =>{
 window.pickConvertion = pickConvertion;
 window.convertFunction = convertFunction;
 window.updateUnit = updateUnit;
+}
+
+function calcButton(input){
+    calculation += input;
+    calcInputElement.value += calculation
+}
+
+function calcClear(){
+    calculation = '';
+}
+
+function calculate(){
+    var output;
+    try{
+        eval('output = ' + calculation);
+    }catch(e){
+        output = 'Error';
+    }
+    calcOuptut.element.innerHTML = output;
+    calculation = '';
+    inputCalcElement.value = '';
 }
