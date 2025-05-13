@@ -1,4 +1,6 @@
 import {conversionTables} from './conversiontables.js';
+
+
 // Variables
 var massInUnit='mg', massOutUnit = 'mg';
 const massOutputElement = document.querySelector('#outputMass');
@@ -93,7 +95,7 @@ function convertFunction(type){
 }
 
 window.onload = () =>{
-    pickConvertion('mass')
+    pickConvertion('home')
 
 window.pickConvertion = pickConvertion;
 window.convertFunction = convertFunction;
