@@ -162,16 +162,16 @@
             <p id="outputVol">Start converting!</p>
         </div>
         <div class="tab" id="temperature">
-            <input type="text" placeholder="Enter temperature" id="tempInput" onchange="convertTemp()" autocomplete="new-password">
+            <input type="text" placeholder="Enter temperature" id="inputTemp" onchange="convertFunction('Temp')" autocomplete="new-password">
             
             <div class="dropdown">
-                <select id="temperatureUnitInSelect" class="unit-select" onchange="updateTempUnitIn(this.value)">
+                <select id="temperatureUnitInSelect" class="unit-select" onchange="updateUnit('In', 'Temp' , this.value)">
                     <option value="c">Celcius</option>
                     <option value="f">Fahrenheit</option>
                     <option value="k">Kelvin</option>
                 </select>
                 <span style="margin: 0 10px;">to</span>
-                <select id="temperatureUnitOutSelect" class="unit-select" onchange="updateTempUnitOut(this.value)">
+                <select id="temperatureUnitOutSelect" class="unit-select" onchange="updateUnit('Out', 'Temp' , this.value)>
                     <option value="c">Celcius</option>
                     <option value="f">Fahrenheit</option>
                     <option value="k">Kelvin</option>  
